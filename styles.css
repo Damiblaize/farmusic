@@ -1,35 +1,35 @@
 :root {
-  --bg: #000000;
-  --accent: #66d9ff;
-  --text: #e6f7ff;
-  --muted: #9fbfce;
-}
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: system-ui, sans-serif;
+  --bg: #001f4d; /* deep dark blue */
+  --accent-start: #4a90e2; /* bright sky blue */
+  --accent-end: #007aff; /* vivid electric blue */
+  --text: #d0e8ff; /* soft light blue text */
+  --muted: #a1b8d7; /* muted blue-gray */
 }
 body {
-  background: var(--bg);
+  background: linear-gradient(135deg, var(--bg), #003366);
   color: var(--text);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
+  font-family: system-ui, sans-serif;
+  height: 100vh;
+  margin: 0;
 }
 .card {
   width: 100%;
   max-width: 480px;
   padding: 24px;
   border-radius: 12px;
-  box-shadow: 0 6px 30px rgba(0,0,0,0.6);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border: 1px solid rgba(102,217,255,0.08);
+  box-shadow: 0 8px 30px rgba(0, 122, 255, 0.6);
+  background: linear-gradient(180deg, rgba(74,144,226,0.1), rgba(0,122,255,0.15));
+  border: 1px solid rgba(0, 122, 255, 0.4);
 }
 h1 {
-  font-size: 20px;
-  color: var(--accent);
+  font-size: 24px;
+  color: var(--accent-start);
   margin-bottom: 16px;
+  text-shadow: 0 0 8px var(--accent-end);
 }
 label {
   display: block;
@@ -41,20 +41,33 @@ input {
   padding: 10px;
   margin-top: 4px;
   border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 122, 255, 0.1);
   color: var(--text);
+  transition: background 0.3s ease;
+}
+input:focus {
+  background: rgba(0, 122, 255, 0.3);
+  border-color: var(--accent-end);
+  outline: none;
+  box-shadow: 0 0 8px var(--accent-end);
 }
 button {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(90deg, var(--accent), #3fb0ff);
-  color: #000;
+  background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+  color: #fff;
   font-weight: bold;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   margin-top: 12px;
+  box-shadow: 0 4px 15px var(--accent-end);
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: linear-gradient(90deg, var(--accent-end), var(--accent-start));
+  box-shadow: 0 6px 20px var(--accent-end);
 }
 .note {
   margin-top: 16px;
